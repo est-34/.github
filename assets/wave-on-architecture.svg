@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="452" viewBox="0 0 1280 452" style="max-width:100%;height:auto" role="img" aria-labelledby="title desc">
+  <title id="title">SilentOrchestra 2.0 시스템 아키텍처</title>
+  <desc id="desc">브라우저와 선택적 Python 웹캠 클라이언트가 모션 특징과 맥락을 HTTP로 전달합니다. 단일 FastAPI 서버의 agent, identity, demo 모듈은 도메인과 유스케이스를 포함합니다. 저장소와 OS 어댑터는 코어의 포트를 구현하고 bootstrap.py와 main.py가 구현을 연결합니다. SQLite 또는 PostgreSQL에 특징과 학습 기억을 저장하며, 명시적으로 활성화한 경우에만 로컬 OS 동작을 수행합니다. 화살표는 주요 실행 흐름이며 소스 의존성이 아닙니다. 원본 프레임은 저장하거나 전송하지 않습니다.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M1 1 8 5 1 9" fill="none" stroke="#2D56B6" stroke-width="1.5"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; fill: #172D42; }
+    .heading { font-size: 25px; font-weight: 700; }
+    .body { font-size: 18px; }
+    .small { font-size: 16px; fill: #52677C; }
+    .label { font-size: 15px; font-weight: 700; fill: #2D56B6; }
+    .flow { fill: none; stroke: #2D56B6; stroke-width: 2; marker-end: url(#arrow); }
+  </style>
+  <rect width="1280" height="452" fill="#F1F4F8"/>
+
+  <text x="40" y="40" class="label">01 / 사용자 입력</text>
+  <rect x="40" y="60" width="320" height="352" rx="12" fill="#FFFFFF" stroke="#D8E1E9"/>
+  <text x="64" y="102" class="heading">브라우저 · 웹캠</text>
+  <text x="64" y="134" class="small">Vanilla HTML/CSS/JS</text>
+  <text x="64" y="166" class="small">선택적 Python · OpenCV 클라이언트</text>
+  <path d="M64 190H336" stroke="#D8E1E9"/>
+  <text x="64" y="229" class="body">몸짓 · 맥락 · 후속 행동</text>
+  <text x="64" y="258" class="small">로컬 특징 추출 · 원본 프레임 미전송</text>
+  <text x="64" y="317" class="body">기억 · 제안 · 실행 결과</text>
+  <text x="64" y="346" class="small">사용자 승인 · 교정 · 피드백</text>
+
+  <text x="480" y="40" class="label">02 / 핵심 처리</text>
+  <rect x="480" y="60" width="320" height="352" rx="12" fill="#E7EDF9" stroke="#2D56B6"/>
+  <text x="504" y="102" class="heading">FastAPI 서버</text>
+  <text x="504" y="134" class="small">Python · 모듈러 모놀리스</text>
+  <text x="504" y="166" class="small">클린 · 헥사고날 아키텍처</text>
+  <path d="M504 190H776" stroke="#D8E1E9"/>
+  <text x="504" y="229" class="body">HTTP → 공개 모듈 API</text>
+  <text x="504" y="258" class="small">agent · identity · demo</text>
+  <text x="504" y="317" class="body">Application · Domain</text>
+  <text x="504" y="346" class="small">학습·추론·피드백 / 사용자 / 초기화</text>
+
+  <text x="920" y="40" class="label">03 / 데이터·OS 연동</text>
+  <rect x="920" y="60" width="320" height="352" rx="12" fill="#FFFFFF" stroke="#D8E1E9"/>
+  <text x="944" y="102" class="heading">SQLite / PostgreSQL</text>
+  <text x="944" y="132" class="small">SQLAlchemy · 단일 DB</text>
+  <text x="944" y="161" class="small">모션 특징 · 기억 · 실행 · 피드백</text>
+  <text x="944" y="229" class="body">로컬 OS 어댑터</text>
+  <text x="944" y="258" class="small">활성 창 확인 · 선택적 키 전송</text>
+  <text x="944" y="317" class="body">승인된 기억만 실행</text>
+  <text x="944" y="346" class="small">기본 DRY_RUN · OS 실행 명시 설정</text>
+
+  <path d="M368 236H472" class="flow"/>
+  <text x="420" y="213" class="small" text-anchor="middle">HTTP</text>
+  <path d="M808 236H912" class="flow"/>
+  <text x="860" y="198" class="small" text-anchor="middle">출력 포트</text>
+  <text x="860" y="219" class="small" text-anchor="middle">· 어댑터</text>
+
+</svg>
